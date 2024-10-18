@@ -107,6 +107,508 @@
       </div>
     </div>
   </div>
+
+  <div>
+    <!--AQUI-->
+    <section class="financial-ratios apple-section">
+      <article>
+        <h2>Ratios Financieros de Apple (Año 2023)</h2>
+
+        <!-- Botones para seleccionar el tipo de ratios -->
+        <div class="buttons-container">
+          <button onclick="showSection('liquidez')">Ratios de Liquidez</button>
+          <button onclick="showSection('solvencia')">
+            Ratios de Solvencia
+          </button>
+          <button onclick="showSection('gestion')">Ratios de Gestión</button>
+          <button onclick="showSection('rentabilidad')">
+            Ratios de Rentabilidad
+          </button>
+        </div>
+
+        <!-- Sección INICIAL -->
+        <div id="seccion-inicial">
+          <div style="min-height: 300px" class="manager-section">
+            <div class="manager">
+              <img
+                src="https://estudiomuniz.pe/wp-content/uploads/2018/01/estudio-muniz-tenga-cuidado-gerente.jpg"
+                alt="Gerente Animado"
+              />
+              <div class="speech-bubble">
+                <p style="color: white" id="dialog-text">
+                  ¡Hola! Soy el gerente, y voy a interpretar los ratios
+                  financieros para ti.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sección de Liquidez -->
+        <div id="liquidez" class="ratios-section" style="display: none">
+          <h3>Ratios de Liquidez</h3>
+          <div class="contenedor-liquidez">
+            <div class="ratios-contenido">
+              <ul>
+                <li>
+                  <strong>Ratio de Liquidez Corriente:</strong> 0.99<br />
+                  <em>Cálculo:</em> Activo Corriente = 143,566 / Pasivo
+                  Corriente = 145,308
+                </li>
+                <li>
+                  <strong>Prueba Ácida (Quick Ratio):</strong> 0.95<br />
+                  <em>Cálculo:</em> (Activo Corriente - Inventario) = (143,566 -
+                  6,331) / Pasivo Corriente = 145,308
+                </li>
+                <li>
+                  <strong>Ratio de Liquidez Inmediata:</strong> 0.21<br />
+                  <em>Cálculo:</em> Efectivo y Equivalentes = 29,965 / Pasivo
+                  Corriente = 145,308
+                </li>
+              </ul>
+            </div>
+            <div class="gerente-contenido">
+              <div class="manager">
+                <img
+                  src="https://estudiomuniz.pe/wp-content/uploads/2018/01/estudio-muniz-tenga-cuidado-gerente.jpg"
+                  alt="Gerente Animado"
+                />
+                <div class="speech-bubble">
+                  <p style="color: white">
+                    La empresa apenas tiene suficiente activo corriente para
+                    cubrir sus pasivos corrientes, lo cual podría sugerir una
+                    necesidad de manejar mejor los recursos líquidos en el corto
+                    plazo
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sección de Solvencia -->
+        <div id="solvencia" class="ratios-section" style="display: none">
+          <h3>Ratios de Solvencia</h3>
+          <div class="contenedor-solvencia">
+            <!-- Contenido de los ratios -->
+            <div class="ratios-contenido">
+              <ul>
+                <li>
+                  <strong>Ratio de Endeudamiento Total:</strong> 0.82<br />
+                  <em>Cálculo:</em> Pasivo Total = 290,437 / Activo Total =
+                  352,583
+                </li>
+                <li>
+                  <strong>Ratio de Patrimonio:</strong> 0.18<br />
+                  <em>Cálculo:</em> Patrimonio Neto = 62,146 / Activo Total =
+                  352,583
+                </li>
+                <li>
+                  <strong>Apalancamiento Financiero:</strong> 5.67<br />
+                  <em>Cálculo:</em> Activo Total = 352,583 / Patrimonio Neto =
+                  62,146
+                </li>
+              </ul>
+            </div>
+            <!-- Contenido del gerente -->
+            <div class="gerente-contenido">
+              <div class="manager">
+                <img
+                  src="https://estudiomuniz.pe/wp-content/uploads/2018/01/estudio-muniz-tenga-cuidado-gerente.jpg"
+                  alt="Gerente Animado"
+                />
+                <div class="speech-bubble">
+                  <p style="color: white">
+                    Apple presenta un nivel de deuda relativamente alto en
+                    relación con sus activos, lo que implica una significativa
+                    dependencia de financiación externa.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sección de Gestión -->
+        <div id="gestion" class="ratios-section" style="display: none">
+          <h3>Ratios de Gestión</h3>
+          <div class="contenedor-gestion">
+            <!-- Contenido de los ratios -->
+            <div class="ratios-contenido">
+              <ul>
+                <li>
+                  <strong>Rotación de Cuentas por Cobrar:</strong> 12.99<br />
+                  <em>Cálculo:</em> Ingresos Totales = 383,285 / Cuentas por
+                  Cobrar = 29,508
+                </li>
+                <li>
+                  <strong>Rotación de Inventarios:</strong> 33.82<br />
+                  <em>Cálculo:</em> Costo de los Ingresos = 214,137 /
+                  Inventarios = 6,331
+                </li>
+                <li>
+                  <strong>Rotación de Cuentas por Pagar:</strong> 3.42<br />
+                  <em>Cálculo:</em> Costo de los Ingresos = 214,137 / Cuentas
+                  por Pagar = 62,611
+                </li>
+              </ul>
+            </div>
+            <!-- Contenido del gerente -->
+            <div class="gerente-contenido">
+              <div class="manager">
+                <img
+                  src="https://estudiomuniz.pe/wp-content/uploads/2018/01/estudio-muniz-tenga-cuidado-gerente.jpg"
+                  alt="Gerente Animado"
+                />
+                <div class="speech-bubble">
+                  <p style="color: white">
+                    En cuanto a la gestión, Apple tiene una excelente rotación
+                    de cuentas por cobrar (12.99), lo que significa que
+                    convierte eficientemente sus ventas a crédito en efectivo.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sección de Rentabilidad -->
+        <div id="rentabilidad" class="ratios-section" style="display: none">
+          <h3>Ratios de Rentabilidad</h3>
+          <div class="contenedor-rentabilidad">
+            <!-- Contenido de los ratios -->
+            <div class="ratios-contenido">
+              <ul>
+                <li>
+                  <strong>Margen de Ganancia Bruta:</strong> 44.13%<br />
+                  <em>Cálculo:</em> Beneficio Bruto = 169,148 / Ingresos Totales
+                  = 383,285
+                </li>
+                <li>
+                  <strong>Rentabilidad sobre el Patrimonio (ROE):</strong>
+                  156%<br />
+                  <em>Cálculo:</em> Ingresos Netos = 96,995 / Patrimonio Neto =
+                  62,146
+                </li>
+                <li>
+                  <strong>Rentabilidad sobre Activos (ROA):</strong> 27.5%<br />
+                  <em>Cálculo:</em> Ingresos Netos = 96,995 / Activo Total =
+                  352,583
+                </li>
+              </ul>
+            </div>
+            <!-- Contenido del gerente -->
+            <div class="gerente-contenido">
+              <div class="manager">
+                <img
+                  src="https://estudiomuniz.pe/wp-content/uploads/2018/01/estudio-muniz-tenga-cuidado-gerente.jpg"
+                  alt="Gerente Animado"
+                />
+                <div class="speech-bubble">
+                  <p style="color: white">
+                    En cuanto a la rentabilidad, el margen de ganancia bruta del
+                    44.13% y la rentabilidad sobre el patrimonio (ROE) del 156%
+                    indican una empresa extremadamente rentable, con una
+                    capacidad impresionante para convertir sus ingresos en
+                    beneficios netos.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </div>
+
+  <style>
+    /* Estilos generales para los contenedores de ratios */
+    .ratios-section .contenedor-liquidez,
+    .ratios-section .contenedor-solvencia,
+    .ratios-section .contenedor-gestion,
+    .ratios-section .contenedor-rentabilidad {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 20px;
+      flex-wrap: wrap; /* Para responsive design */
+    }
+
+    /* Estilo para el contenedor de los ratios */
+    .ratios-contenido {
+      width: 60%;
+    }
+
+    /* Estilo para el contenedor del gerente */
+    .gerente-contenido {
+      width: 35%;
+      margin-top: 20px; /* Añadido para espaciado en pantallas pequeñas */
+    }
+
+    /* Ajustes para móviles */
+    @media (max-width: 768px) {
+      .ratios-contenido,
+      .gerente-contenido {
+        width: 100%;
+      }
+      .gerente-contenido {
+        margin-top: 20px;
+      }
+    }
+
+    /* Ajustes específicos para la burbuja de diálogo */
+    .gerente-contenido .manager {
+      align-items: center;
+    }
+
+    .gerente-contenido .speech-bubble {
+      position: relative;
+      top: -20px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 200px;
+    }
+
+    /* Triángulo de la burbuja ajustado */
+    .gerente-contenido .speech-bubble:after {
+      top: 100%;
+      left: 50%;
+      margin-left: -10px;
+      border-color: #0e084b transparent transparent transparent;
+    }
+
+    /* Contenedor flex para la sección de liquidez */
+    .contenedor-liquidez {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 20px;
+    }
+
+    /* Estilo para el contenedor de los ratios */
+    .ratios-contenido {
+      width: 60%; /* Ajusta este valor según tus necesidades */
+    }
+
+    /* Estilo para el contenedor del gerente */
+    .gerente-contenido {
+      width: 35%; /* Ajusta este valor según tus necesidades */
+    }
+
+    /* Asegúrate de que las imágenes y burbujas de diálogo se ajusten correctamente */
+    .gerente-contenido .manager {
+      align-items: center;
+    }
+
+    .gerente-contenido .speech-bubble {
+      right: auto;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Ajuste para centrar la burbuja encima del gerente */
+    .gerente-contenido .speech-bubble {
+      position: relative;
+      top: -20px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 200px;
+    }
+
+    /* Triángulo de la burbuja ajustado */
+    .speech-bubble:after {
+      top: 100%;
+      left: 50%;
+      margin-left: -10px;
+      border-color: #0e084b transparent transparent transparent;
+    }
+
+    #dialog-text {
+      margin-top: 0px;
+    }
+    /* Sección del gerente */
+    .manager-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #f4f7f9;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Estilo del gerente */
+    .manager {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: float 3s ease-in-out infinite;
+      left: 0;
+    }
+
+    #liquidez > div > div.gerente-contenido > div > div > p,
+    #solvencia > div > div.gerente-contenido > div > div > p,
+    #gestion > div > div.gerente-contenido > div > div > p,
+    #rentabilidad > div > div.gerente-contenido > div > div > p {
+      margin-top: 0;
+    }
+
+    /* Imagen del gerente */
+    .manager img {
+      width: 150px;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .manager img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Burbuja de diálogo */
+    .speech-bubble {
+      position: absolute;
+      top: -20px;
+      right: -220px;
+      width: 200px;
+      padding: 15px;
+      background-color: #0e084b;
+      color: white;
+      border-radius: 15px;
+      box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+      font-size: 14px;
+      line-height: 1.5;
+      animation: fadeIn 1s ease;
+    }
+
+    /* Triángulo de la burbuja */
+    .speech-bubble:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      margin-top: -10px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent #0e084b transparent transparent;
+    }
+
+    /* Animaciones */
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Ajustes en móviles */
+    @media (max-width: 768px) {
+      .speech-bubble {
+        right: -150px;
+        width: 180px;
+      }
+    }
+  </style>
+
+  <script>
+    // Función para cambiar el texto de la burbuja de diálogo
+    function changeDialog(text) {
+      document.getElementById("dialog-text").textContent = text;
+    }
+  </script>
+
+  <style>
+    .financial-ratios h2 {
+      color: #0e084b;
+      font-weight: bold;
+    }
+
+    .financial-ratios h3 {
+      color: #0e084b;
+      font-weight: bold;
+      margin-top: 30px;
+    }
+
+    .financial-ratios p {
+      margin-top: 20px;
+      color: black;
+    }
+
+    .financial-ratios ul {
+      margin-top: 20px;
+      padding-left: 20px;
+    }
+
+    .financial-ratios ul li {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .financial-ratios ul li strong {
+      color: #0e084b;
+    }
+
+    .financial-ratios article {
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 15px;
+      background-color: #fff;
+    }
+
+    .buttons-container {
+      margin-bottom: 20px;
+    }
+
+    .buttons-container button {
+      margin-right: 10px;
+      padding: 10px 20px;
+      background-color: #0e084b;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .buttons-container button:hover {
+      background-color: #333;
+    }
+  </style>
+
+  <script>
+    function showSection(sectionId) {
+      // Oculta la sección inicial
+      document.getElementById("seccion-inicial").style.display = "none";
+
+      // Oculta todas las secciones de ratios
+      var sections = document.querySelectorAll(".ratios-section");
+      sections.forEach(function (section) {
+        section.style.display = "none";
+      });
+
+      // Muestra solo la sección seleccionada
+      document.getElementById(sectionId).style.display = "block";
+    }
+  </script>
 </div>
 
 <style>
