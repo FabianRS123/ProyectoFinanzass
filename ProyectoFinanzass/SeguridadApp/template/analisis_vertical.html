@@ -1,0 +1,169 @@
+{% extends 'plantilla.html' %} {% block content %}
+<div
+  class="apple-background"
+  style="
+    background-image: url('https://i.blogs.es/d4e199/mineria-criptomonedas/450_1000.jpeg');
+  "
+>
+  <section class="content apple-section">
+    <article>
+      <h2>Análisis vertical de Apple</h2>
+      <p style="margin-top: 50px; color: black">
+        El análisis vertical de Apple se centra en desglosar los ingresos y gastos de 
+        la empresa en porcentajes de sus ingresos totales. Este enfoque permite evaluar 
+        la estructura de costos y la rentabilidad de la empresa, identificando qué porcentaje 
+        de los ingresos se destina a diferentes categorías como costos de producción, gastos 
+        operativos, y otros gastos. Al expresar cada partida como un porcentaje de los 
+        ingresos totales, se facilita la comparación con períodos anteriores y con otras 
+        empresas del mismo sector, proporcionando una visión clara de la eficiencia y 
+        la gestión financiera de Apple.
+      </p>
+    </article>
+  </section>
+
+  <div
+    id="carrusel-container"
+    class="financial-carousel"
+    style="max-width: 1000px; margin: 0 auto; position: relative"
+  >
+    <!-- Botones de navegación -->
+    <button
+      id="prevSlide"
+      style="
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 10;
+      "
+    >
+      &#10094;
+    </button>
+    <button
+      id="nextSlide"
+      style="
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 10;
+      "
+    >
+      &#10095;
+    </button>
+
+    <!-- Carrusel -->
+    <div id="carouselSlides" style="overflow: hidden; position: relative">
+      <div
+        id="slidesWrapper"
+        style="display: flex; transition: transform 0.5s ease-in-out"
+      >
+        <!-- Slide 1: Estado Financiero -->
+        <div
+          class="slide"
+          style="
+            width: 100%;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            pointer-events: auto;
+          "
+        >
+          {% include "components/analisis_vertical_SituacionFinanciera.html" %}
+        </div>
+        <!-- Slide 2: Flujo de Caja -->
+        <div
+          class="slide"
+          style="
+            width: 100%;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            pointer-events: auto;
+          "
+        >
+          {% include "components/analisis_vertical_EstadoResultados.html" %}
+        </div>
+        <!-- Slide 3: Otro Informe -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Estilos específicos para la sección de Apple */
+  .apple-section {
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #f9f9f9; /* Fondo distinto solo para esta sección */
+  }
+
+  .apple-section article {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #fff;
+  }
+
+  .apple-section h2 {
+    color: #0e084b;
+    font-weight: bold;
+  }
+
+  .apple-section p {
+    margin-top: 50px;
+  }
+
+  /* Estilos específicos para el carrusel */
+  .financial-carousel {
+    background-color: #ffffff; /* Fondo blanco solo para el carrusel */
+  }
+
+  .financial-carousel .slide {
+    background-color: #f5f5f5; /* Fondo distinto para cada slide */
+    padding: 20px;
+    border-radius: 5px;
+    margin: 10px;
+  }
+
+  /* Evitamos aplicar estilos globales */
+</style>
+
+{% endblock %} {% block extra_scripts %}
+<script>
+  window.addEventListener("load", function () {
+    const carousel = document.getElementById("slidesWrapper");
+    const slides = document.querySelectorAll(".slide");
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+
+    document.getElementById("prevSlide").addEventListener("click", function () {
+      currentIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
+      updateSlidePosition();
+    });
+
+    document.getElementById("nextSlide").addEventListener("click", function () {
+      currentIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
+      updateSlidePosition();
+    });
+
+    function updateSlidePosition() {
+      const slideWidth = slides[0].clientWidth;
+      carousel.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+    }
+
+    // Posiciona correctamente al cargar la página
+    updateSlidePosition();
+  });
+</script>
+{% endblock %}

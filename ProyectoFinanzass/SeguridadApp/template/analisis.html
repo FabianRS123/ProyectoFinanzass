@@ -1,0 +1,180 @@
+{% extends 'plantilla.html' %} {% block content %}
+<div
+  class="apple-background"
+  style="
+    background-image: url('https://i.blogs.es/d4e199/mineria-criptomonedas/450_1000.jpeg');
+  "
+>
+  <section class="content apple-section">
+    <article>
+      <h2>Análisis Financiero de Apple</h2>
+      <p style="margin-top: 50px; color: black">
+        Apple Inc. es una de las empresas tecnológicas más valiosas y
+        reconocidas a nivel mundial. Sus estados financieros reflejan un sólido
+        rendimiento, con ingresos y ganancias que han crecido consistentemente
+        en los últimos años. Analizar los estados financieros de Apple permite
+        entender su estrategia de negocio, su inversión en investigación y
+        desarrollo, y su posición en el mercado global. La empresa destaca por
+        su alta liquidez, bajos niveles de deuda y una capitalización de mercado
+        que supera a la de muchos de sus competidores.
+      </p>
+    </article>
+  </section>
+
+  <div
+    id="carrusel-container"
+    class="financial-carousel"
+    style="max-width: 1000px; margin: 0 auto; position: relative"
+  >
+    <!-- Botones de navegación -->
+    <button
+      id="prevSlide"
+      style="
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 10;
+      "
+    >
+      &#10094;
+    </button>
+    <button
+      id="nextSlide"
+      style="
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 10;
+      "
+    >
+      &#10095;
+    </button>
+
+    <!-- Carrusel -->
+    <div id="carouselSlides" style="overflow: hidden; position: relative">
+      <div
+        id="slidesWrapper"
+        style="display: flex; transition: transform 0.5s ease-in-out"
+      >
+        <!-- Slide 1: Estado Financiero -->
+        <div
+          class="slide"
+          style="
+            width: 100%;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            pointer-events: auto;
+          "
+        >
+          {% include "components/estados_financieros.html" %}
+        </div>
+        <!-- Slide 2: Flujo de Caja -->
+        <div
+          class="slide"
+          style="
+            width: 100%;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            pointer-events: auto;
+          "
+        >
+          {% include "components/flujo_de_caja.html" %}
+        </div>
+        <!-- Slide 3: Otro Informe -->
+        <div
+          class="slide"
+          style="
+            width: 100%;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            pointer-events: auto;
+          "
+        >
+          {% include "components/estado_de_resultados.html" %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Estilos específicos para la sección de Apple */
+  .apple-section {
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #f9f9f9; /* Fondo distinto solo para esta sección */
+  }
+
+  .apple-section article {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #fff;
+  }
+
+  .apple-section h2 {
+    color: #0e084b;
+    font-weight: bold;
+  }
+
+  .apple-section p {
+    margin-top: 50px;
+  }
+
+  /* Estilos específicos para el carrusel */
+  .financial-carousel {
+    background-color: #ffffff; /* Fondo blanco solo para el carrusel */
+  }
+
+  .financial-carousel .slide {
+    background-color: #f5f5f5; /* Fondo distinto para cada slide */
+    padding: 20px;
+    border-radius: 5px;
+    margin: 10px;
+  }
+
+  /* Evitamos aplicar estilos globales */
+</style>
+
+{% endblock %} {% block extra_scripts %}
+<script>
+  window.addEventListener("load", function () {
+    const carousel = document.getElementById("slidesWrapper");
+    const slides = document.querySelectorAll(".slide");
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+
+    document.getElementById("prevSlide").addEventListener("click", function () {
+      currentIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
+      updateSlidePosition();
+    });
+
+    document.getElementById("nextSlide").addEventListener("click", function () {
+      currentIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
+      updateSlidePosition();
+    });
+
+    function updateSlidePosition() {
+      const slideWidth = slides[0].clientWidth;
+      carousel.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+    }
+
+    // Posiciona correctamente al cargar la página
+    updateSlidePosition();
+  });
+</script>
+{% endblock %}

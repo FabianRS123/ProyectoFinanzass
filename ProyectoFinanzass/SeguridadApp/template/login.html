@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link rel="icon" href="{% static 'img/Apple_logo_black.svg.png' %}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'login/css/style.css' %}">
+</head>
+<body class="login">
+    <div class="wrapper">
+        <!-- Formulario de Inicio de Sesión -->
+        <form id="login-form" method="POST" action="{% url 'login' %}" autocomplete="off">
+            {% csrf_token %}
+            <h4 class="form-title" style="color: #fff;">Inicio de Sesión</h4>
+            <div class="form-group input-field">
+                <input type="text" class="form-control" id="username" name="username" required autocomplete="off">
+                <label for="username">Ingrese Usuario</label>
+            </div>
+            <div class="form-group input-field">
+                <input type="password" class="form-control" id="password" name="password" required autocomplete="off">
+                <label for="password">Digite su clave</label>
+            </div>
+            <div class="register">
+                <p>Aún no tienes una cuenta? <a href="#" onclick="toggleForms()">Regístrate</a></p>
+            </div>
+            <button type="submit" name="login">Ingresar</button>
+        </form>
+
+        <!-- Formulario de Registro -->
+        <form id="register-form" method="POST" action="{% url 'login' %}" autocomplete="off" style="display: none;" onsubmit="return validatePasswords()">
+          {% csrf_token %}
+          <h4 class="form-title">Registro</h4>
+          
+          <div class="form-group input-field">
+              <input type="text" class="form-control" id="name" name="name" required>
+              <label for="name">Nombre de Usuario</label>
+          </div>
+          
+          <div class="form-group input-field">
+              <input type="email" class="form-control" id="email" name="email" required>
+              <label for="email">Email</label>
+          </div>
+          
+          <div class="form-group input-field">
+              <input type="text" class="form-control" id="direccion" name="direccion" required>
+              <label for="direccion">Dirección</label>
+          </div>
+          
+          <div class="form-group input-field">
+              <input type="text" class="form-control" id="ruc_dni" name="ruc_dni" required>
+              <label for="ruc_dni">RUC/DNI</label>
+          </div>
+          
+          <div class="form-group input-field">
+              <input type="password" class="form-control" id="register_password" name="register_password" required>
+              <label for="register_password">Clave</label>
+          </div>
+          
+          <div class="form-group input-field">
+              <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+              <label for="confirm_password">Confirmar Clave</label>
+          </div>
+          
+          <p id="error-message" style="color: red; display: none;">Las contraseñas no coinciden.</p>
+          
+          <div class="register">
+              <p>¿Ya tienes una cuenta? <a href="#" onclick="toggleForms()">Inicia sesión</a></p>
+          </div>
+          
+          <button type="submit" name="register">Registrarme</button>
+      </form>
+      
+      <script>
+          function validatePasswords() {
+              const password = document.getElementById("register_password").value;
+              const confirmPassword = document.getElementById("confirm_password").value;
+              const errorMessage = document.getElementById("error-message");
+      
+              if (password !== confirmPassword) {
+                  errorMessage.style.display = "block";
+                  return false; // Evita que el formulario se envíe
+              } else {
+                  errorMessage.style.display = "none";
+                  return true; // Permite que el formulario se envíe
+              }
+          }
+      </script>
+      
+    </div>
+
+    <script>
+        function toggleForms() {
+            var loginForm = document.getElementById('login-form');
+            var registerForm = document.getElementById('register-form');
+            loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
+            registerForm.style.display = registerForm.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function validatePassword() {
+            var password = document.getElementById("register_password").value;
+            var confirm_password = document.getElementById("confirm_password").value;
+
+            if (password !== confirm_password) {
+                document.getElementById("error-message").style.display = "block";
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+    .input-field input {
+        background: transparent; /* Fondo transparente */
+        border: none; /* Sin borde */
+        outline: none; /* Sin contorno */
+        color: #fff; /* Color de texto */
+        font-size: 16px; /* Tamaño de texto */
+    }
+    
+    .input-field input:focus {
+        background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente al hacer foco */
+        color: #fff; /* Color de texto */
+    }
+    
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 10px;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("https://i.blogs.es/d4e199/mineria-criptomonedas/450_1000.jpeg"), #000;
+  background-position: center;
+  background-size: cover;
+}
+
+.wrapper {
+  width: 400px;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+.form-control {
+    background-color: #f8f9fa;
+}
+
+.form-control:focus {
+    background-color: #e2e6ea;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.input-field {
+  position: relative;
+  border-bottom: 2px solid #ccc;
+  margin: 15px 0;
+}
+
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.15s ease;
+}
+
+.input-field input {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+}
+
+.input-field input:focus~label,
+.input-field input:valid~label {
+  font-size: 0.8rem;
+  top: 10px;
+  transform: translateY(-120%);
+}
+
+.forget {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 25px 0 35px 0;
+  color: #fff;
+}
+
+#remember {
+  accent-color: #fff;
+}
+
+.forget label {
+  display: flex;
+  align-items: center;
+}
+
+.forget label p {
+  margin-left: 8px;
+}
+
+.wrapper a {
+  color: #efefef;
+  text-decoration: none;
+}
+
+.wrapper a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  color: #fff;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.register {
+  text-align: center;
+  margin-top: 30px;
+  color: #fff;
+}
+</style>

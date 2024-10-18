@@ -1,0 +1,172 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+<div  style="background-image: url('https://i.blogs.es/d4e199/mineria-criptomonedas/450_1000.jpeg');">
+    <section class="content">
+        <article style="display: flex; justify-content: center; align-items: flex-start;">
+            <div style="flex: 1; margin-right: 20px; text-align: center;">
+                <h3>Factor de Capitalizacion de Serie</h3>
+                <img src="https://javilinares.com/wp-content/uploads/2024/03/Diferencias-entre-interes-simple-y-compuesto-inversion-01.png" alt="Interés Simple y Compuesto" style="width: 100%; height: auto; border-radius: 5px;">
+            </div>
+            <div style="flex: 1; text-align: center;">
+                <form id="calculo-form" method="post" action="{% url 'quintaFormula' %}">
+                    {% csrf_token %}
+                    <div style="margin-top: 20px;">
+                        <label>Tipo de Interés:</label><br>
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <input type="radio" id="tipo_interes_simple" name="tipo_interes" value="simple" required>
+                            <label for="tipo_interes_simple" style="margin-right: 20px;">Interés Simple</label>
+                            
+                            <input type="radio" id="tipo_interes_compuesto" name="tipo_interes" value="compuesto" required>
+                            <label for="tipo_interes_compuesto">Interés Compuesto</label>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <label for="monto">Flujo de pago:</label>
+                        <input type="number" id="flujoPafo" name="flujoPago">
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <label for="tasa">Tasa de interés (%):</label>
+                        <input type="number" id="tasa" name="tasa" required>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <label for="tiempo">Tiempo (en años):</label>
+                        <input type="number" id="tiempo" name="tiempo" required>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <button type="submit">Calcular</button>
+                    </div>
+                </form>
+            </div>    
+            <!-- Modal para resultados -->
+            <div class="modal fade" id="resultadoModal" tabindex="-1" role="dialog" aria-labelledby="resultadoModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="resultadoModalLabel">Resultados</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                <label>Stock Final: {{ stockFinal }}</label><br>
+                                <label>En un tiempo de {{ tiempo }} meses</label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        
+        <script>
+            $(document).ready(function() {
+                // Solo muestra el modal si hay resultados
+                {% if interes_simple is not None or interes_compuesto is not None %}
+                    $('#resultadoModal').modal('show');
+                {% endif %}
+            });
+        </script>
+         
+    </section>    
+</div>
+<!-- CSS de Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- jQuery y Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<style>
+    
+    body {
+        font-family: Arial, sans-serif;
+        
+        margin: 0;
+        padding: 0;
+        background-image: url('https://previews.123rf.com/images/ismagilov/ismagilov1503/ismagilov150300393/38267805-c%C3%A1lculo-avanzado-y-f%C3%B3rmulas-sobre-un-fondo-blanco.jpg');
+    }
+    
+    nav ul li {
+        display: inline;
+        margin-right: 15px;
+    }
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px;
+    }
+
+    nav .has-children {
+        position: relative;
+    }
+    
+    .content {
+        padding: 40px;
+        max-width: 1000px; /* Ajusta el ancho máximo que prefieras */
+        margin: 0 auto; /* Centra el contenido en la página */
+    }
+    
+
+    .content article {
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 15px;
+        background-color: #fff;
+    }
+
+    .content h2{
+        color: #0e084b;
+        font: bold;
+    }
+    .content .image {
+        width: 100%;
+        height: auto;
+        margin: 10px 0;
+        border-radius: 5px;
+    }
+
+    .content ul {
+        padding-left: 20px;
+    }
+
+    .content ul li {
+        margin-bottom: 10px;
+    }
+    .content article {
+        display: flex;
+        align-items: flex-start; /* Alinea la imagen y el texto en la parte superior */
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 15px;
+        background-color: #fff;
+    }
+    
+    .content article img {
+        width: 200px; /* Ajusta el tamaño de la imagen */
+        margin-right: 15px; /* Espacio entre la imagen y el texto */
+        border-radius: 5px;
+    }
+    
+    .content article p,
+    .content article ul {
+        flex: 1; /* Hace que el texto tome el espacio restante */
+        margin: 0;
+    }
+    
+    .content article h2,
+    .content article h3 {
+        margin-top: 0; /* Elimina el margen superior de los encabezados */
+    }
+    
+</style>
+
+{% endblock %}
+
