@@ -68,7 +68,7 @@
         <script>
             $(document).ready(function() {
                 // Solo muestra el modal si hay resultados
-                {% if interes_simple is not None or interes_compuesto is not None %}
+                {% if tiempo is not None or stockInicial is not None %}
                     $('#resultadoModal').modal('show');
                 {% endif %}
             });

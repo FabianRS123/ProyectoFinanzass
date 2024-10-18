@@ -207,7 +207,7 @@ def sextaFormula(request):
             tiempo = float(request.POST.get('tiempo', 0))*12
         else:
             stockInicial = float(request.POST.get('stockInicial', 0))
-            tasa = interesEquivalente(float(request.POST.get('tasa', 0)))/100
+            tasa = float(request.POST.get('tasa', 0))/100
             tiempo = float(request.POST.get('tiempo', 0))
 
         flujoPago= stockInicial * (tasa/(1-(1+tasa)**-tiempo))

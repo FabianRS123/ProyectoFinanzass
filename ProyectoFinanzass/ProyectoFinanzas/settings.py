@@ -88,9 +88,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'dbfinanzas',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
+        'USER': 'gians',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
